@@ -1,20 +1,38 @@
+
+import SearchBar from "./SearchBar.js"
+import {useState} from "react"
+/*
 import logo from "./logo.svg";
-import "./App.css";
 import {PropTypes} from "prop-types"
 import Info from "./Info.js";
-import {useState} from "react"
+
+*/
 
 function App() {
+  const [data, getData] = useState({});
+
+  const updatedData = (answer) => {
+    getData(answer);
+  };
   return (
     <div className="App">
-      <Info />
-      <Info title ="This title was passed as a prop" />
-      <ButtonState />
+      <SearchBar callback={updatedData}/>
+      <p>{"name" in data ? data["name"]: "Nothing"}</p>
+      <p>{"price" in data ? data["price"]: "Nothing"}</p>
+      <p>{"type" in data ? data["type"]: "Nothing"}</p>
+      <p>{"brand" in data ? data["brand"]: "Nothing"}</p>
+
       {/* <AddItem text="Joe" number={2} /> */}
     </div>
   );
 }
 
+
+
+
+
+
+/*
 //working with stats: functionals states
 function ButtonState() {
   //make a hook: usestate. hook into react features
@@ -55,12 +73,6 @@ function Data(props) {
   )
 }
 
-
-export default App;
-
-
-
-/*
 //example of a functional based component
 function AddItem(props) {
   //Read-only
@@ -86,3 +98,5 @@ AddItem.propTypes = {
  // <AddItem text="Joe" number="hahahah" /> will give error
 }
 */
+
+export default App;
