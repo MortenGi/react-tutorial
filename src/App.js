@@ -1,6 +1,7 @@
-
-import SearchBar from "./SearchBar.js"
-import {useState} from "react"
+import SearchBar from "./SearchBar.js";
+import { useState } from "react";
+import AddItem from "./AddItem.js";
+import ItemsDisplay from "./ItemsDisplay.js"
 /*
 import logo from "./logo.svg";
 import {PropTypes} from "prop-types"
@@ -9,28 +10,29 @@ import Info from "./Info.js";
 */
 
 function App() {
-  const [data, getData] = useState({});
+  const [filters, setFilters] = useState({});
+  const [data, setData] = useState({ items: [] });
 
-  const updatedData = (answer) => {
-    getData(answer);
+  const addItemToData = (item) => {
+    let items = data["items"];
+    item.id = items.length;
+    items.push(item);
+    setData({items:items});
+  };
+
+  const updateFilters = (answer) => {
+    setFilters(answer);
   };
   return (
     <div className="App">
-      <SearchBar callback={updatedData}/>
-      <p>{"name" in data ? data["name"]: "Nothing"}</p>
-      <p>{"price" in data ? data["price"]: "Nothing"}</p>
-      <p>{"type" in data ? data["type"]: "Nothing"}</p>
-      <p>{"brand" in data ? data["brand"]: "Nothing"}</p>
+      <SearchBar udpateSearchParams={updateFilters} />
+      <ItemsDisplay items={data["items"]}></ItemsDisplay>
+      <AddItem addItem={addItemToData} />
 
       {/* <AddItem text="Joe" number={2} /> */}
     </div>
   );
 }
-
-
-
-
-
 
 /*
 //working with stats: functionals states

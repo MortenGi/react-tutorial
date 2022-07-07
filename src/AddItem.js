@@ -10,19 +10,25 @@ import { useState } from "react";
 }
 */
 
-function SearchBar(props) {
+function AddItem(props) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [type, setType] = useState("");
   const [brand, setBrand] = useState("");
 
-  const searchButtonPressed = () => {
-    props.udpateSearchParams({ name: name, price: price, type: type, brand: brand });
+  const AddItemButtonPressed = () => {
+    props.addItem({ name: name, price: price, type: type, brand: brand });
+   setName("");
+   setPrice(0);
+   setType("");
+   setBrand("");
+    
+   
   };
 
   return (
     <div>
-      <h2>Search for an item</h2>
+      <h2>Add an item</h2>
       <form>
         <h1>Items</h1>
         {/* in js would use "for", in JSX htmlFor */}
@@ -35,7 +41,7 @@ function SearchBar(props) {
             setName(e.target.value);
           }}
         ></input>
-        <label htmlFor="price-field">Max Price:</label>
+        <label htmlFor="price-field">Price:</label>
         <input
           id="price-field"
           type="number"
@@ -62,12 +68,12 @@ function SearchBar(props) {
             setBrand(e.target.value);
           }}
         ></input>
-        <button type="button" onClick={searchButtonPressed}>
-          Search
+        <button type="button" onClick={AddItemButtonPressed}>
+          Add Item
         </button>
       </form>
     </div>
   );
 }
 
-export default SearchBar;
+export default AddItem;
