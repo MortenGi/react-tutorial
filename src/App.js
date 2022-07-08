@@ -23,7 +23,19 @@ function App() {
 
   const addItemToData = (item) => {
     let items = data["items"];
-    item.id = items.length;
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "Application/json" },
+      body: JSON.stringify(item),
+    };
+    fetch("http://localhost:3000/items", requestOptions)
+      .then((_res) => _res.json())
+      .then((data) => {
+        items.push(data);
+        setData({ items: items });
+      });
+
     items.push(item);
     setData({ items: items });
   };
