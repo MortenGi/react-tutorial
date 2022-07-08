@@ -1,8 +1,16 @@
 import SearchBar from "./SearchBar.js";
 import { useState } from "react";
 import AddItem from "./AddItem.js";
-import ItemsDisplay from "./ItemsDisplay.js"
+import ItemsDisplay from "./ItemsDisplay.js";
+import styles from "./App.module.css"; //naming it .module and importing it like this (styles) amkes it only locally available, in this module
+import styled from "styled-components";
+
+const StyledComp = styled.h1`
+  //lets define a styled-components
+  color: ${(props) => (props.color ? props.color : "red")};
+`;
 /*
+
 import logo from "./logo.svg";
 import {PropTypes} from "prop-types"
 import Info from "./Info.js";
@@ -17,18 +25,30 @@ function App() {
     let items = data["items"];
     item.id = items.length;
     items.push(item);
-    setData({items:items});
+    setData({ items: items });
   };
 
   const updateFilters = (answer) => {
     setFilters(answer);
   };
   return (
-    <div className="App">
-      <SearchBar udpateSearchParams={updateFilters} />
-      <ItemsDisplay items={data["items"]}></ItemsDisplay>
-      <AddItem addItem={addItemToData} />
-
+    <div className="container">
+      {" "}
+      {/* allowed cause we use bootstrap */}
+      <h1 className={styles.blue}>Halloooo</h1>
+      <div className="row mt-3"> {/* margin : loopup bootrap documentaion */}
+        <StyledComp color="yellow">This is a styled component</StyledComp>
+      </div>
+      <div className="row mt-3">
+        <ItemsDisplay items={data["items"]}></ItemsDisplay>
+      </div>
+      <div className="row mt-3">
+        <SearchBar udpateSearchParams={updateFilters} />
+      </div>
+      <div className="row mt-3">
+        <AddItem addItem={addItemToData} style={{ color: "red" }} />{" "}
+        {/*makes an inline style*/}
+      </div>
       {/* <AddItem text="Joe" number={2} /> */}
     </div>
   );
