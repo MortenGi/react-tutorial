@@ -31,16 +31,41 @@ function App() {
   const updateFilters = (answer) => {
     setFilters(answer);
   };
+
+  const applyFilters = (data) => {
+    const filtered_data = [];
+
+    if (!filters.name) {
+      return data;
+    }
+
+    for (const item of data) {
+      if (filters.name !== "" && item.name !== filters.name) {
+        continue;
+      } else if (filters.price !== 0 && item.price > filters.price) {
+        continue;
+      } else if (filters.type !== "" && item.type !== filters.type) {
+        continue;
+      } else if (filters.brand !== "" && item.brand !== filters.brand) {
+        continue;
+      }
+      filtered_data.push(item);
+    }
+    return filtered_data;
+  };
+
   return (
     <div className="container">
       {" "}
       {/* allowed cause we use bootstrap */}
       <h1 className={styles.blue}>Halloooo</h1>
-      <div className="row mt-3"> {/* margin : loopup bootrap documentaion */}
+      <div className="row mt-3">
+        {" "}
+        {/* margin : loopup bootrap documentaion */}
         <StyledComp color="yellow">This is a styled component</StyledComp>
       </div>
       <div className="row mt-3">
-        <ItemsDisplay items={data["items"]}></ItemsDisplay>
+        <ItemsDisplay items={applyFilters(data["items"])}></ItemsDisplay>
       </div>
       <div className="row mt-3">
         <SearchBar udpateSearchParams={updateFilters} />
