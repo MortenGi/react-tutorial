@@ -80,7 +80,7 @@ function AddItem(props) {
         </div>
       </div>
       <div className="row mt-3">
-      <div className="col-4" />
+        <div className="col-4" />
         <button
           type="button"
           onClick={AddItemButtonPressed}

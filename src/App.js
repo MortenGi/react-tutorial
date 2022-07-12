@@ -1,9 +1,10 @@
 import SearchBar from "./SearchBar.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddItem from "./AddItem.js";
 import ItemsDisplay from "./ItemsDisplay.js";
 import styles from "./App.module.css"; //naming it .module and importing it like this (styles) amkes it only locally available, in this module
 import styled from "styled-components";
+import Test from "./Class.js";
 
 const StyledComp = styled.h1`
   //lets define a styled-components
@@ -20,7 +21,26 @@ import Info from "./Info.js";
 function App() {
   const [filters, setFilters] = useState({});
   const [data, setData] = useState({ items: [] });
+  const [showTest, setShowTest] = useState(true);
+  //GET all data stored in database
+  useEffect(() => {
+    fetch("http://localhost:3000/items")
+      .then((_res) => _res.json())
+      .then((data) => {
+        setData({ items: data });
+      });
+  }, []);
 
+  /*
+  useEffect(() => {
+    console.log("Use Effect");
+    //return for a cleanup !!
+    return () => {
+      console.log("Cleaup");
+    };
+    //pass empty list to make uE run only once, params in list to make it run on variable changes
+  }, [filters]);
+*/
   const addItemToData = (item) => {
     let items = data["items"];
 
@@ -87,6 +107,7 @@ function App() {
         {/*makes an inline style*/}
       </div>
       {/* <AddItem text="Joe" number={2} /> */}
+      {/*showTest ? <Test destroy={setShowTest} /> : null*/}
     </div>
   );
 }

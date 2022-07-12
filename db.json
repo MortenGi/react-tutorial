@@ -20,6 +20,48 @@
       "type": "Christ",
       "brand": "Gottessohn",
       "id": 3
+    },
+    {
+      "name": "Jesus",
+      "price": 0,
+      "type": "fghfg",
+      "brand": "Gottessohn",
+      "id": 4
+    },
+    {
+      "name": "Jesus",
+      "price": "1",
+      "type": "fghfg",
+      "brand": "Gottessohn",
+      "id": 5
+    },
+    {
+      "name": "Jesus",
+      "price": 0,
+      "type": "fghfg",
+      "brand": "Gottessohn",
+      "id": 6
+    },
+    {
+      "name": "Jesus",
+      "price": 0,
+      "type": "fghfg",
+      "brand": "Gottessohn",
+      "id": 7
+    },
+    {
+      "name": "",
+      "price": 0,
+      "type": "",
+      "brand": "",
+      "id": 8
+    },
+    {
+      "name": "",
+      "price": 0,
+      "type": "",
+      "brand": "",
+      "id": 9
     }
   ]
 }
