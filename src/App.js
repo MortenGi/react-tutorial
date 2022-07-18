@@ -46,7 +46,7 @@ function App() {
 
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "Application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(item),
     };
     fetch("http://localhost:3000/items", requestOptions)
@@ -58,10 +58,26 @@ function App() {
 
     items.push(item);
     setData({ items: items });
+    console.log(data);
   };
 
   const updateFilters = (answer) => {
     setFilters(answer);
+  };
+
+  const deleteItem = (item) => {
+    const items = data["items"];
+    const requestOptions = { method: "DELETE" };
+    fetch(`http://localhost:3000/items/${item.id}`, requestOptions).then(
+      //backticks makes it like ian f string
+      (_res) => {
+        if (_res.ok) {
+          const idx = items.indexOf(item);
+          items.splice(idx, 1);
+          setData({ items: items });
+        }
+      }
+    );
   };
 
   const applyFilters = (data) => {
@@ -74,11 +90,14 @@ function App() {
     for (const item of data) {
       if (filters.name !== "" && item.name !== filters.name) {
         continue;
-      } else if (filters.price !== 0 && item.price > filters.price) {
+      }
+      if (filters.price !== 0 && item.price > filters.price) {
         continue;
-      } else if (filters.type !== "" && item.type !== filters.type) {
+      }
+      if (filters.type !== "" && item.type !== filters.type) {
         continue;
-      } else if (filters.brand !== "" && item.brand !== filters.brand) {
+      }
+      if (filters.brand !== "" && item.brand !== filters.brand) {
         continue;
       }
       filtered_data.push(item);
@@ -97,7 +116,10 @@ function App() {
         <StyledComp color="yellow">This is a styled component</StyledComp>
       </div>
       <div className="row mt-3">
-        <ItemsDisplay items={applyFilters(data["items"])}></ItemsDisplay>
+        <ItemsDisplay
+          deleteItem={deleteItem}
+          items={applyFilters(data["items"])}
+        ></ItemsDisplay>
       </div>
       <div className="row mt-3">
         <SearchBar udpateSearchParams={updateFilters} />

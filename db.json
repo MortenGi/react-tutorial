@@ -2,66 +2,101 @@
   "items": [
     {
       "name": "Jesus",
-      "price": "2",
+      "price": "-3",
       "type": "fghfg",
-      "brand": "eeee",
+      "brand": "Gottessohn",
       "id": 1
     },
     {
-      "name": "Jesus",
-      "price": "2",
-      "type": "fghfg",
-      "brand": "Gottessohn",
+      "name": "zujzu",
+      "price": 0,
+      "type": "Christ",
+      "brand": "eeee",
       "id": 2
     },
     {
-      "name": "Jesus",
-      "price": "3",
-      "type": "Christ",
+      "name": "sss",
+      "price": 0,
+      "type": "fghfg",
       "brand": "Gottessohn",
       "id": 3
     },
     {
-      "name": "Jesus",
+      "name": "",
       "price": 0,
-      "type": "fghfg",
-      "brand": "Gottessohn",
+      "type": "",
+      "brand": "",
       "id": 4
     },
     {
-      "name": "Jesus",
-      "price": "1",
-      "type": "fghfg",
-      "brand": "Gottessohn",
+      "name": "",
+      "price": 0,
+      "type": "",
+      "brand": "",
       "id": 5
     },
     {
-      "name": "Jesus",
+      "name": "",
       "price": 0,
-      "type": "fghfg",
-      "brand": "Gottessohn",
+      "type": "",
+      "brand": "",
       "id": 6
     },
     {
-      "name": "Jesus",
+      "name": "",
       "price": 0,
       "type": "fghfg",
-      "brand": "Gottessohn",
+      "brand": "",
       "id": 7
     },
     {
-      "name": "",
+      "name": "Jesus",
       "price": 0,
       "type": "",
       "brand": "",
       "id": 8
     },
     {
-      "name": "",
+      "name": "zujzu",
       "price": 0,
       "type": "",
       "brand": "",
       "id": 9
+    },
+    {
+      "name": "",
+      "price": 0,
+      "type": "fghfg",
+      "brand": "",
+      "id": 10
+    },
+    {
+      "name": "",
+      "price": 0,
+      "type": "",
+      "brand": "",
+      "id": 11
+    },
+    {
+      "name": "Jesus",
+      "price": 0,
+      "type": "",
+      "brand": "eeee",
+      "id": 12
+    },
+    {
+      "name": "Fransk",
+      "price": "40",
+      "type": "Lololol",
+      "brand": "Brand33",
+      "id": 13
+    },
+    {
+      "name": "sss",
+      "price": "4",
+      "type": "fghfg",
+      "brand": "Gottessohn",
+      "id": 14
     }
   ]
 }

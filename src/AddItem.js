@@ -41,7 +41,7 @@ function AddItem(props) {
               setName(e.target.value);
             }}
           ></input>
-        </div>{" "}
+        </div>
         <div className="col">
           <label htmlFor="price-field">Price:</label>
           <input
@@ -53,7 +53,7 @@ function AddItem(props) {
               setPrice(e.target.value);
             }}
           ></input>
-        </div>{" "}
+        </div>
         <div className="col">
           <label htmlFor="type-field">Type:</label>
           <input
@@ -65,7 +65,7 @@ function AddItem(props) {
               setType(e.target.value);
             }}
           ></input>
-        </div>{" "}
+        </div>
         <div className="col">
           <label htmlFor="brand-field">Brand:</label>
           <input
